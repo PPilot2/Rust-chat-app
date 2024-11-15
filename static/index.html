@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Chat App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #messages {
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: scroll;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        #messageInput {
+            width: 80%;
+            padding: 10px;
+        }
+        #sendButton {
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rust Chat App</h1>
+    <div id="messages"></div>
+    <input id="messageInput" type="text" placeholder="Type a message...">
+    <button id="sendButton">Send</button>
+
+    <script>
+        const ws = new WebSocket("ws://localhost:3030/chat");
+        const messages = document.getElementById("messages");
+        const messageInput = document.getElementById("messageInput");
+        const sendButton = document.getElementById("sendButton");
+
+        // Display messages from the server
+        ws.onmessage = function (event) {
+            const message = document.createElement("div");
+            message.textContent = event.data;
+            messages.appendChild(message);
+            messages.scrollTop = messages.scrollHeight; // Scroll to the latest message
+        };
+
+        // Send message to the server when the send button is clicked
+        sendButton.onclick = function () {
+            const message = messageInput.value;
+            if (message) {
+                ws.send(message);
+                messageInput.value = ""; // Clear input field
+            }
+        };
+
+        // Send message when Enter key is pressed
+        messageInput.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                sendButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
