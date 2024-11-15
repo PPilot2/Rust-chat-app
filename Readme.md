@@ -28,3 +28,5 @@ Make sure you have the following installed:
    cd chat_app
 
 
+
+Fixed typos in the documentation.
