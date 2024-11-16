@@ -30,3 +30,5 @@ Make sure you have the following installed:
 
 
 Fixed typos in the documentation.
+
+Improved documentation for setup process.
