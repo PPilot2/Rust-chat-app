@@ -26,9 +26,3 @@ Make sure you have the following installed:
    ```bash
    git clone https://github.com/yourusername/chat_app.git
    cd chat_app
-
-
-
-Fixed typos in the documentation.
-
-Improved documentation for setup process.
