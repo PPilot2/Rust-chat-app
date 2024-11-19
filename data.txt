@@ -4,3 +4,5 @@ Updated example usage for new feature.
 Updated example usage for new feature.
 
 Refactor a section for better clarity.
+
+Refactor a section for better clarity.
