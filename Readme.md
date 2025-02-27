@@ -24,5 +24,5 @@ Make sure you have the following installed:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/chat_app.git
+   git clone https://github.com/PPilot2/chat_app.git
    cd chat_app
